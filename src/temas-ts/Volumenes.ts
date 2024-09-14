@@ -1,29 +1,32 @@
 import {Areas} from './Areas';
 
 class Volumenes extends Areas {
-    constructor(base: number, altura: number, radio: number) {
-        super(base, altura, radio);
+    
+    alturaV: number;
+
+    constructor(base: number, radio: number, alturaV: number,) {
+        super(base, radio,  alturaV);
+        this.alturaV = alturaV;
     }
-    VolumenPrisma(): number {
-        return this.Cuadrado() * this.altura;
+
+    Prisma(): number {
+        return this.Cuadrado() * this.alturaV;
     }
-    VolumenPiramide(): number {
-        return (this.Triangulo() * this.altura) / 3;
+
+    Piramide(): number {
+        return (this.Cuadrado() * this.alturaV) / 3;
     }
-    VolumenCilindro(): number {
-        return Math.PI * this.radio * this.radio * this.altura;
+
+    Cilindro(): number {
+        return this.Circulo() * this.alturaV;
     }
 }
-const rectangulo = new Areas(2, 0,0);
-console.log(`Área del rectángulo: ${rectangulo.Cuadrado()}`);
-const triangulo = new Areas(10, 2,0);
-console.log(`Área del triángulo: ${triangulo.Triangulo()}`);
-const circulo = new Areas(5, 4,5);
-console.log(`Área del círculo: ${circulo.Circulo()}`);
 
-const prisma = new Volumenes(2, 2, 0);
-console.log(`Volumen del prisma: ${prisma.VolumenPrisma()}`);
-const piramide = new Volumenes(10, 2, 0);
-console.log(`Volumen de la pirámide: ${piramide.VolumenPiramide()}`);
-const cilindro = new Volumenes(0, 2, 2);
-console.log(`Volumen del cilindro: ${cilindro.VolumenCilindro()}`);
+let prisma = new Volumenes(4, 10, 5); 
+console.log(`Volumen del prisma: `, prisma.Prisma());
+
+let piramide = new Volumenes(6, 9, 1); 
+console.log(`Volumen de la pirámide: `, piramide.Piramide());
+
+let cilindro = new Volumenes(0, 7, 3);
+console.log(`Volumen del cilindro: `, cilindro.Cilindro());

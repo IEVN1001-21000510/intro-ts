@@ -13,7 +13,7 @@ export class Areas{
     }
 
     Circulo(): number {
-        return (2 * Math.PI * this.radio * this.altura) + (2 * Math.PI * Math.pow(this.radio, 2));
+        return Math.PI * Math.pow(this.radio, 2);
     }
 
     Triangulo(): number{
@@ -21,13 +21,13 @@ export class Areas{
     }
 
 }
-    let cuadrado = new Areas(4,0,0);
+    let cuadrado = new Areas(4, 0, 0);
     console.log(`Área del cuadrado:, `,cuadrado.Cuadrado());
 
-    let triangulo = new Areas(10,5,0);
+    let triangulo = new Areas(10, 5, 0);
     console.log(`Área del triángulo:`, triangulo.Triangulo());   
 
-    let circulo = new Areas(3, 5, 0);
+    let circulo = new Areas(3, 5, 3);
     console.log(`Área del círculo:`, circulo.Circulo());
 
 
